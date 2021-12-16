@@ -36,10 +36,12 @@ public class EditVino extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_vino);
         context=this;
-        try{
+
+        //si el archivo se borra en los archivos del telefono de forma inesperada entonces se cerrará la actividad
+        try {
             initialize();
-        }catch (Exception e){
-            finish();
+        }catch (NullPointerException e){
+        finish();
         }
 
     }
@@ -99,8 +101,7 @@ public class EditVino extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 borraVino(getFilesDir(),String.valueOf(id),fileName);
-                                Intent refresh = new Intent(EditVino.this, MainActivity.class);
-                                startActivity(refresh);
+
                                 finish();
                             }
                         });

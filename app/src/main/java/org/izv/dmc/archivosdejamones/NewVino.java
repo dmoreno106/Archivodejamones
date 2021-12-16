@@ -2,7 +2,6 @@ package org.izv.dmc.archivosdejamones;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -62,8 +61,6 @@ public class NewVino extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent refresh = new Intent(NewVino.this, MainActivity.class);
-                startActivity(refresh);
                 finish();
             }
         });
@@ -132,8 +129,6 @@ public class NewVino extends AppCompatActivity {
         }
     }
     private void writeResult(Boolean result) {
-        Intent refresh = new Intent(NewVino.this, MainActivity.class);
-        startActivity(refresh);
         finish();
 
 

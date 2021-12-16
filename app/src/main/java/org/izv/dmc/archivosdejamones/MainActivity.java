@@ -43,7 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
             File f=new File(getFilesDir(), fileName);
             FileWriter fw;
-            }catch (NullPointerException nu){
+            fw=new FileWriter(f,true);
+            fw.write("");
+            fw.flush();
+            fw.close();
+            }catch (NullPointerException | IOException nu){
 
         }
 
