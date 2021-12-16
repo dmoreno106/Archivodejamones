@@ -36,7 +36,12 @@ public class EditVino extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_vino);
         context=this;
-        initialize();
+        try{
+            initialize();
+        }catch (Exception e){
+            finish();
+        }
+
     }
 
     private void initialize() {
@@ -65,16 +70,12 @@ public class EditVino extends AppCompatActivity {
                 public void onClick(View view) {
                     borraVino(getFilesDir(),String.valueOf(id),fileName);
                     writeInternalFile();
-                    Intent refresh = new Intent(EditVino.this, MainActivity.class);
-                    startActivity(refresh);
                     finish();
                 }
             });
             btCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent refresh = new Intent(EditVino.this, MainActivity.class);
-                    startActivity(refresh);
                     finish();
                 }
             });
@@ -86,8 +87,8 @@ public class EditVino extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                builder.setTitle("Borrar vino")
-                        .setMessage("Estas a punto de borrar el vino, ¿está seguro?")
+                builder.setTitle(R.string.title_dialog)
+                        .setMessage(R.string.conten_dialog)
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
